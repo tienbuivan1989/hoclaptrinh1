@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bài 2</title>
+	<meta name="desription" content="Mô tả về bài 2">
+	<meta name="keyword" content="keyword của trang">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+</head>
+<body>
+
+
+
+<form method="get" action="form.php">
+	Họ Tên: <input type="text" name="hoten">
+	Tuổi: <input type="number" name="tuoi">
+	Ngày sinh: <input type="date" name="ngaysinh">
+	Mật khẩu: <input type="password" name="matkhau">
+	<textarea rows="10" cols="20"></textarea>
+
+</form> <!-- end form -->
+
+
+</body>
+</html>
