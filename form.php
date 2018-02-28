@@ -1,6 +1,8 @@
 <?php
+
 if (isset($_POST["dangky"])){
 	echo $_POST["hoten"];
+	echo $_POST["dieukhoan"];
 }
 ?>
 
@@ -34,7 +36,9 @@ if (isset($_POST["dangky"])){
 		<option value="DN">Đà Nẵng</option>
 	</select> <!-- end select -->
 	<br>
+	<input type="checkbox" name="dieukhoan">
 	<input type="submit" name="dangky" value="Đăng Ký">
+
 </form> <!-- end form -->
 
 
