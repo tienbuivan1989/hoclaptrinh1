@@ -1,4 +1,6 @@
 <?php
+session_start();
+require'include/check_login.php';
 $a = array( );
 $b= array (2,3,5,6,"abc",9);
 // ko dung echo cho mang

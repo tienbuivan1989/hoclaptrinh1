@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +13,9 @@
 
 </head>
 <body>
-	<p> <?php if (isset($_SESSION["vn_admin"])) 
-	{
-		echo "xin chao: " .$_SESSION["vn_admin"];
-	}
-	else {
-		echo " <a> Dang nhap </a> " ;
-	}
-	?> </p>
+	<?php
+	require'include/check_login.php';
+	?>
 	<?php
 
 
