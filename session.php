@@ -8,4 +8,6 @@ $a =array (
 	"id" => 1
 );
 $_SESSION["info"] = $a;
+unset($_SESSION["user"]); // huy 1 session
+session_destroy(); //huy tat ca session
 ?>

@@ -1,11 +1,15 @@
 <?php
 session_start();
+date_default_timezone_set("Asia/Ho_Chi_Minh");
 if (isset($_POST["login"])){
 	$user = $_POST["user"];
 	$password = $_POST["pass"];
 	if ($user=="admin123" && $password == "123456"){
 		// dung ten dang nhap va mat khau
 		$_SESSION["vn_admin"] = $user; //danh dau da dang nhap session
+		if ($_POST['remember']== 'on'){
+			setcookie('vn_admin', $user, time ()+ 7*24*3600);
+		}
 		header ("location: mang.php");
 	}
 	else {
@@ -31,6 +35,10 @@ if (isset($_POST["login"])){
 			<tr>
 				<td> Mat Khau</td>
 				<td> <input type="password" name="pass"></td>
+			</tr>
+			<tr>
+				<td>  </td>
+				<td> <input type="checkbox" name="remember" checked="checked"> Ghi nho dang nhap</td>
 			</tr>
 			<tr>
 				
