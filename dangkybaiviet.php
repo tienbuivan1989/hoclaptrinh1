@@ -2,15 +2,15 @@
 require 'config.php';
 if (isset($_POST['dangky'])){
 	print_r($_POST);
-	$new_tile = $_POST['new_tile'];
+	$title = $_POST['title'];
 	$content = $_POST['content'];
 	$status = $_POST['status'];
-	if ($new_tile==''){
+	if ($title==''){
 		$error = "Vui long nhap day du thong tin";
 	}
 	else {
 // lu vao co so du lieu
-		$sql = "INSERT INTO news (new_tile, new_content, new_status) VALUES ('$new_tile', '$content','$status')";
+		$sql = "INSERT INTO news (new_title, new_content, new_status) VALUES ('$title', '$content','$status')";
 		mysqli_query($conn, $sql) ;
 			header('location:news_list.php');
 		
@@ -28,7 +28,7 @@ if (isset($_POST['dangky'])){
 	<table>
 		<tr>
 			<td> ten bai viet </td>
-			<td><input type="text" name="new_tile"></td>
+			<td><input type="text" name="title"></td>
 		</tr>
 		<tr>
 			<td> trang thai </td>
