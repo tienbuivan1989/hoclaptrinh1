@@ -41,6 +41,7 @@ while ($row = mysqli_fetch_array($result)) {
 		<th> <?php echo $row['ngaythang']; ?> </th>
 		
 		<th>
+			<a href="cart.php?id=<?php echo $row['id']; ?>">mua ngay</a> 
 			<a href="sanpham_edit.php?id=<?php echo $row['id']; ?>">sua</a> 
 			<a href="sanpham_delete.php?id=<?php echo $row['id']; ?>">xoa</a> 
 			<a href="sanpham_add.php?id=<?php echo $row['id']; ?>">Them</a> 

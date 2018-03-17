@@ -13,8 +13,11 @@ require 'config.php';
 	<tr>
 		<th>stt</th>
 		<th>tieu de</th>
+		<th>Anh</th>
 		<th>Noi dung</th>
-		<th>trang thai</th>
+		<th>trang thai</th>		
+		<th>Hanh dong</th>
+		
 	</tr>
 <?php
 $sql = 'SELECT * FROM news';
@@ -29,6 +32,7 @@ while ($row = mysqli_fetch_array($result)) {
 		
 		<th><?php echo $i;?> </th>
 		<th> <?php echo $row['new_title']; ?> </th>
+		<th> <img width="50" src="uploads/<?php echo $row['new_image'];?>"> </th>
 		<th> <?php echo $row['new_content']; ?></th>
 		<th> <?php if ($row['new_status']==1){
 			echo 'hoat dong';
