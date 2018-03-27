@@ -28,17 +28,74 @@ if (isset($_GET['id'])){
 	
 	header ('location:cart.php');
 }
-echo 'gio hang';
-echo '<pre>';
-print_r($_SESSION['cart']);
-echo '</pre>';
-foreach ($product as $key => $value) {
-	?>
-	<table border="1">
-		<tr>
-			<td> <?php echo $value; ?></td>
-		</tr>
-	</table>
-	<?php 
+// het them moi gio hang
+// cap nhat gio hang
+if (isset($_POST['update'])){
+	foreach ($_SESSION['cart'] as $cart) {
+		$id=$cart['id'];
+		$qty=$_POST['qty'][$id];
+		$_SESSION['cart'][$id]['qty']=$qty;//cap nhat so luong
+		header('cart.php');
+	}
 }
+//HET CHAP NHAT
+echo 'gio hang';
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hien thi gio hang</title>
+</head>
+<body>
+<h1>Gio hang cua ban</h1>
+	<?php
+	if (isset($_SESSION['cart'])){?>
+<form method="post" action="">
+	<table border="1" width="1000">
+	<tr>
+		<th>Stt</th>
+		<th>ID</th>
+		<th>Ten</th>
+		<th>Gia</th>
+		<th>So luong</th>
+		<th>Thanh tien</th>
+		<th>HOan tac</th>
+	</tr>
+	<?php 
+	$i=1;
+	$cart=$_SESSION['cart'];
+	
+foreach ($cart as $item){ ?>
+	<tr>
+		<td><?php echo $i;?></td>
+		<td><?php echo $item['id'];?> </td>
+		<td> <?php echo $item['model']; ?> </td>
+		<td> <?php echo $item['price']; ?> </td>
+		<td> <input type="number" name="qty[<?php echo $item['id'];?>]" value="<?php echo $item['qty'];?>"></td>
+		<td> <?php echo $sub =  $item['price']*$item['qty'];?> </td>
+
+		<td>
+			<a href="del_cart.php?id=<?php echo $item['id'];?>">Xoa san pham</a>
+		</td>
+	</tr>
+<?php $i++; } ?>
+<tr>
+	<td colspan="7">
+		<a href="sanpham_list.php">Tiep tuc mua hang</a>
+		<input type="submit" name="update" value="cap nhat">
+		<a href="order.php">Dat hang</a>
+	</td>
+</tr>
+</table>
+</form>
+
+<?php }  else {
+	echo 'ban chua mua san pham nao';
+}
+?>
+</body>
+</html>
+<?php
 ?>
