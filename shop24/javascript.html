@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<title>javascript</title>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">	$(document).ready(function(){
+		
+		$("#demo").hide();
+		$(".xoa").click(function(){
+			a=confirm('ban co muon xoa');
+			if (a==false){
+				return false;
+			}
+		});
+		$('#search').keyup(function(){
+			$.post("demo.php",
+    {
+        name: "Donald Duck",
+        city: "Duckburg"
+    },
+    function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+			key=$('#search').val();
+			if (key==""){
+				$('#demo1').html('khong nhap ten la demo');
+			} else{
+			$('#demo1').html(key);
+			}
+		})
+   
+});
+	</script>
+
+	
+</head>
+<body>
+	<p id="demo">JavaScript can change HTML content</p>
+<button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript"''> Click</button>
+<p id="demo1"> thay doi</p>
+<input type="text" name="search" id="search">
+<a href="delete.php" class="xoa">Xoa</a>
+
+</body>
+</html>
